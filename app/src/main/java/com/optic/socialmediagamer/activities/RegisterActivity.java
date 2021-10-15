@@ -83,7 +83,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void register() {
         String username = mTextInputUsername.getText().toString();
         String email = mTextInputEmail.getText().toString();
-        String password  = mTextInputPassword.getText().toString();
+        String password = mTextInputPassword.getText().toString();
         String confirmPassword = mTextInputConfirmPassword.getText().toString();
         String phone = mTextInputPhone.getText().toString();
 
@@ -92,20 +92,16 @@ public class RegisterActivity extends AppCompatActivity {
                 if (password.equals(confirmPassword)) {
                     if (password.length() >= 6) {
                         createUser(username, email, password, phone);
-                    }
-                    else {
+                    } else {
                         Toast.makeText(this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show();
                     }
-                }
-                else {
+                } else {
                     Toast.makeText(this, "Las contraseña no coinciden", Toast.LENGTH_SHORT).show();
                 }
-            }
-            else {
+            } else {
                 Toast.makeText(this, "Insertaste todos los campos pero el correo no es valido", Toast.LENGTH_LONG).show();
             }
-        }
-        else {
+        } else {
             Toast.makeText(this, "Para continuar inserta todos los campos", Toast.LENGTH_SHORT).show();
         }
     }
@@ -133,14 +129,12 @@ public class RegisterActivity extends AppCompatActivity {
                                 Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
-                            }
-                            else {
+                            } else {
                                 Toast.makeText(RegisterActivity.this, "No se pudo almacenar el usuario en la base de datos", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
-                }
-                else {
+                } else {
                     mDialog.dismiss();
                     Toast.makeText(RegisterActivity.this, "No se pudo registrar el usuario", Toast.LENGTH_SHORT).show();
                 }

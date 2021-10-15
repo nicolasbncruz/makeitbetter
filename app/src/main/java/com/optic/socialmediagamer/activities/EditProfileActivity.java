@@ -70,7 +70,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     File mImageFile;
     File mImageFile2;
-    
+
     String mUsername = "";
     String mPhone = "";
     String mImageProfile = "";
@@ -96,7 +96,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         mBuilderSelector = new AlertDialog.Builder(this);
         mBuilderSelector.setTitle("Selecciona una opcion");
-        options = new CharSequence[] {"Imagen de galeria", "Tomar foto"};
+        options = new CharSequence[]{"Imagen de galeria", "Tomar foto"};
 
         mImageProvider = new ImageProvider();
         mUsersProvider = new UsersProvider();
@@ -176,40 +176,32 @@ public class EditProfileActivity extends AppCompatActivity {
         mUsername = mTextInputUsername.getText().toString();
         mPhone = mTextInputPhone.getText().toString();
         if (!mUsername.isEmpty() && !mPhone.isEmpty()) {
-            if (mImageFile != null && mImageFile2 != null ) {
+            if (mImageFile != null && mImageFile2 != null) {
                 saveImageCoverAndProfile(mImageFile, mImageFile2);
             }
             // TOMO LAS DOS FOTOS DE LA CAMARA
             else if (mPhotoFile != null && mPhotoFile2 != null) {
                 saveImageCoverAndProfile(mPhotoFile, mPhotoFile2);
-            }
-            else if (mImageFile != null && mPhotoFile2 != null) {
+            } else if (mImageFile != null && mPhotoFile2 != null) {
                 saveImageCoverAndProfile(mImageFile, mPhotoFile2);
-            }
-            else if (mPhotoFile != null && mImageFile2 != null) {
+            } else if (mPhotoFile != null && mImageFile2 != null) {
                 saveImageCoverAndProfile(mPhotoFile, mImageFile2);
-            }
-            else if (mPhotoFile != null) {
+            } else if (mPhotoFile != null) {
                 saveImage(mPhotoFile, true);
-            }
-            else if (mPhotoFile2 != null) {
+            } else if (mPhotoFile2 != null) {
                 saveImage(mPhotoFile2, false);
-            }
-            else if (mImageFile != null) {
+            } else if (mImageFile != null) {
                 saveImage(mImageFile, true);
-            }
-            else if (mImageFile2 != null) {
+            } else if (mImageFile2 != null) {
                 saveImage(mImageFile2, false);
-            }
-            else {
+            } else {
                 User user = new User();
                 user.setUsername(mUsername);
                 user.setPhone(mPhone);
                 user.setId(mAuthProvider.getUid());
                 updateInfo(user);
             }
-        }
-        else {
+        } else {
             Toast.makeText(this, "Ingrese el nombre de usuario y el telefono", Toast.LENGTH_SHORT).show();
         }
     }
@@ -242,8 +234,7 @@ public class EditProfileActivity extends AppCompatActivity {
                                                 updateInfo(user);
                                             }
                                         });
-                                    }
-                                    else {
+                                    } else {
                                         mDialog.dismiss();
                                         Toast.makeText(EditProfileActivity.this, "La imagen numero 2 no se pudo guardar", Toast.LENGTH_SHORT).show();
                                     }
@@ -251,8 +242,7 @@ public class EditProfileActivity extends AppCompatActivity {
                             });
                         }
                     });
-                }
-                else {
+                } else {
                     mDialog.dismiss();
                     Toast.makeText(EditProfileActivity.this, "Hubo error al almacenar la imagen", Toast.LENGTH_LONG).show();
                 }
@@ -276,8 +266,7 @@ public class EditProfileActivity extends AppCompatActivity {
                             if (isProfileImage) {
                                 user.setImageProfile(url);
                                 user.setImageCover(mImageCover);
-                            }
-                            else {
+                            } else {
                                 user.setImageCover(url);
                                 user.setImageProfile(mImageProfile);
                             }
@@ -285,8 +274,7 @@ public class EditProfileActivity extends AppCompatActivity {
                             updateInfo(user);
                         }
                     });
-                }
-                else {
+                } else {
                     mDialog.dismiss();
                     Toast.makeText(EditProfileActivity.this, "Hubo error al almacenar la imagen", Toast.LENGTH_LONG).show();
                 }
@@ -304,8 +292,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 mDialog.dismiss();
                 if (task.isSuccessful()) {
                     Toast.makeText(EditProfileActivity.this, "La informacion se actualizo correctamente", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     Toast.makeText(EditProfileActivity.this, "La informacion no se pudo actualizar", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -320,16 +307,13 @@ public class EditProfileActivity extends AppCompatActivity {
                 if (i == 0) {
                     if (numberImage == 1) {
                         openGallery(GALLERY_REQUEST_CODE_PROFILE);
-                    }
-                    else if (numberImage == 2) {
+                    } else if (numberImage == 2) {
                         openGallery(GALLERY_REQUEST_CODE_COVER);
                     }
-                }
-                else if (i == 1){
+                } else if (i == 1) {
                     if (numberImage == 1) {
                         takePhoto(PHOTO_REQUEST_CODE_PROFILE);
-                    }
-                    else if (numberImage == 2) {
+                    } else if (numberImage == 2) {
                         takePhoto(PHOTO_REQUEST_CODE_COVER);
                     }
                 }
@@ -347,7 +331,7 @@ public class EditProfileActivity extends AppCompatActivity {
             File photoFile = null;
             try {
                 photoFile = createPhotoFile(requestCode);
-            } catch(Exception e) {
+            } catch (Exception e) {
                 Toast.makeText(this, "Hubo un error con el archivo " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
 
@@ -369,8 +353,7 @@ public class EditProfileActivity extends AppCompatActivity {
         if (requestCode == PHOTO_REQUEST_CODE_PROFILE) {
             mPhotoPath = "file:" + photoFile.getAbsolutePath();
             mAbsolutePhotoPath = photoFile.getAbsolutePath();
-        }
-        else if (requestCode == PHOTO_REQUEST_CODE_COVER) {
+        } else if (requestCode == PHOTO_REQUEST_CODE_COVER) {
             mPhotoPath2 = "file:" + photoFile.getAbsolutePath();
             mAbsolutePhotoPath2 = photoFile.getAbsolutePath();
         }
@@ -394,7 +377,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 mPhotoFile = null;
                 mImageFile = FileUtil.from(this, data.getData());
                 mCircleImageViewProfile.setImageBitmap(BitmapFactory.decodeFile(mImageFile.getAbsolutePath()));
-            } catch(Exception e) {
+            } catch (Exception e) {
                 Log.d("ERROR", "Se produjo un error " + e.getMessage());
                 Toast.makeText(this, "Se produjo un error " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
@@ -405,7 +388,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 mPhotoFile2 = null;
                 mImageFile2 = FileUtil.from(this, data.getData());
                 mImageViewCover.setImageBitmap(BitmapFactory.decodeFile(mImageFile2.getAbsolutePath()));
-            } catch(Exception e) {
+            } catch (Exception e) {
                 Log.d("ERROR", "Se produjo un error " + e.getMessage());
                 Toast.makeText(this, "Se produjo un error " + e.getMessage(), Toast.LENGTH_LONG).show();
             }

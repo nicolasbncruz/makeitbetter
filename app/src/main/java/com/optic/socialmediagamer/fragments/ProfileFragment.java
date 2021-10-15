@@ -108,8 +108,7 @@ public class ProfileFragment extends Fragment {
                     if (numberPost > 0) {
                         mTextViewPostExist.setText("Publicaciones");
                         mTextViewPostExist.setTextColor(Color.RED);
-                    }
-                    else {
+                    } else {
                         mTextViewPostExist.setText("No hay publicaciones");
                         mTextViewPostExist.setTextColor(Color.GRAY);
                     }

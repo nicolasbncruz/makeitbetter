@@ -53,25 +53,24 @@ public class MessagesAdapter extends FirestoreRecyclerAdapter<Message, MessagesA
 
         if (message.getIdSender().equals(mAuthProvider.getUid())) {
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT
+                    RelativeLayout.LayoutParams.WRAP_CONTENT,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT
             );
             params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-            params.setMargins(150, 0, 0,0);
+            params.setMargins(150, 0, 0, 0);
             holder.linearLayoutMessage.setLayoutParams(params);
             holder.linearLayoutMessage.setPadding(30, 20, 0, 20);
             holder.linearLayoutMessage.setBackground(context.getResources().getDrawable(R.drawable.rounded_linear_layout));
             holder.imageViewViewed.setVisibility(View.VISIBLE);
             holder.textViewMessage.setTextColor(Color.WHITE);
             holder.textViewDate.setTextColor(Color.LTGRAY);
-        }
-        else {
+        } else {
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                     RelativeLayout.LayoutParams.WRAP_CONTENT,
                     RelativeLayout.LayoutParams.WRAP_CONTENT
             );
             params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-            params.setMargins(0, 0, 150,0);
+            params.setMargins(0, 0, 150, 0);
             holder.linearLayoutMessage.setLayoutParams(params);
             holder.linearLayoutMessage.setPadding(30, 20, 30, 20);
             holder.linearLayoutMessage.setBackground(context.getResources().getDrawable(R.drawable.rounded_linear_layout_grey));
@@ -82,8 +81,7 @@ public class MessagesAdapter extends FirestoreRecyclerAdapter<Message, MessagesA
 
         if (message.isViewed()) {
             holder.imageViewViewed.setImageResource(R.drawable.icon_check_blue_light);
-        }
-        else {
+        } else {
             holder.imageViewViewed.setImageResource(R.drawable.icon_check_grey);
         }
 

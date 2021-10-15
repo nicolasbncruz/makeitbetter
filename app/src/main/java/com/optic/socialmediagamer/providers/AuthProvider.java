@@ -32,8 +32,7 @@ public class AuthProvider {
     public String getEmail() {
         if (mAuth.getCurrentUser() != null) {
             return mAuth.getCurrentUser().getEmail();
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -41,8 +40,7 @@ public class AuthProvider {
     public String getUid() {
         if (mAuth.getCurrentUser() != null) {
             return mAuth.getCurrentUser().getUid();
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -50,8 +48,7 @@ public class AuthProvider {
     public FirebaseUser getUserSession() {
         if (mAuth.getCurrentUser() != null) {
             return mAuth.getCurrentUser();
-        }
-        else {
+        } else {
             return null;
         }
     }

@@ -29,7 +29,7 @@ public class PostProvider {
     }
 
     public Query getPostByTitle(String title) {
-        return mCollection.orderBy("title").startAt(title).endAt(title+'\uf8ff');
+        return mCollection.orderBy("title").startAt(title).endAt(title + '\uf8ff');
     }
 
     public Query getPostByUser(String id) {

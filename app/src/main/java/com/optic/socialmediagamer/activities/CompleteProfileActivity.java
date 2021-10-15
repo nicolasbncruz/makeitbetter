@@ -65,8 +65,7 @@ public class CompleteProfileActivity extends AppCompatActivity {
         String phone = mTextInputPhone.getText().toString();
         if (!username.isEmpty()) {
             updateUser(username, phone);
-        }
-        else {
+        } else {
             Toast.makeText(this, "Para continuar inserta todos los campos", Toast.LENGTH_SHORT).show();
         }
     }
@@ -87,8 +86,7 @@ public class CompleteProfileActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Intent intent = new Intent(CompleteProfileActivity.this, HomeActivity.class);
                     startActivity(intent);
-                }
-                else {
+                } else {
                     Toast.makeText(CompleteProfileActivity.this, "No se pudo almacenar el usuario en la base de datos", Toast.LENGTH_SHORT).show();
                 }
             }

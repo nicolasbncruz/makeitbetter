@@ -7,9 +7,9 @@ public class RetrofitClient {
 
     public static Retrofit getClient(String url) {
         Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(url)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
         return retrofit;
     }
 

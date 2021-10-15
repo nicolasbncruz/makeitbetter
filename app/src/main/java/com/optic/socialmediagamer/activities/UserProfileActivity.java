@@ -102,7 +102,7 @@ public class UserProfileActivity extends AppCompatActivity {
                 goToChatActivity();
             }
         });
-        
+
         getUser();
         getPostNumber();
         checkIfExistPost();
@@ -134,6 +134,7 @@ public class UserProfileActivity extends AppCompatActivity {
         super.onStop();
         mAdapter.stopListening();
     }
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -157,8 +158,7 @@ public class UserProfileActivity extends AppCompatActivity {
                     if (numberPost > 0) {
                         mTextViewPostExist.setText("Publicaciones");
                         mTextViewPostExist.setTextColor(Color.RED);
-                    }
-                    else {
+                    } else {
                         mTextViewPostExist.setText("No hay publicaciones");
                         mTextViewPostExist.setTextColor(Color.GRAY);
                     }

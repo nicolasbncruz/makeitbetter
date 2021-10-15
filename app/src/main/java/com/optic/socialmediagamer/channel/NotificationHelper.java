@@ -36,9 +36,9 @@ public class NotificationHelper extends ContextWrapper {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void createChannels() {
         NotificationChannel notificationChannel = new NotificationChannel(
-          CHANNEL_ID,
-          CHANNEL_NAME,
-          NotificationManager.IMPORTANCE_HIGH
+                CHANNEL_ID,
+                CHANNEL_NAME,
+                NotificationManager.IMPORTANCE_HIGH
         );
         notificationChannel.enableLights(true);
         notificationChannel.enableVibration(true);
@@ -79,8 +79,7 @@ public class NotificationHelper extends ContextWrapper {
                     .setName(usernameReceiver)
                     .setIcon(IconCompat.createWithResource(getApplicationContext(), R.drawable.ic_person_grey))
                     .build();
-        }
-        else {
+        } else {
             person1 = new Person.Builder()
                     .setName(usernameReceiver)
                     .setIcon(IconCompat.createWithBitmap(bitmapReceiver))
@@ -94,8 +93,7 @@ public class NotificationHelper extends ContextWrapper {
                     .setName(usernameSender)
                     .setIcon(IconCompat.createWithResource(getApplicationContext(), R.drawable.ic_person_grey))
                     .build();
-        }
-        else {
+        } else {
             person2 = new Person.Builder()
                     .setName(usernameSender)
                     .setIcon(IconCompat.createWithBitmap(bitmapSender))
@@ -104,13 +102,13 @@ public class NotificationHelper extends ContextWrapper {
 
         NotificationCompat.MessagingStyle messagingStyle = new NotificationCompat.MessagingStyle(person1);
         NotificationCompat.MessagingStyle.Message message1 = new
-                                    NotificationCompat.MessagingStyle.Message(
-                                            lastMessage,
-                                            new Date().getTime(),
-                                            person1);
+                NotificationCompat.MessagingStyle.Message(
+                lastMessage,
+                new Date().getTime(),
+                person1);
         messagingStyle.addMessage(message1);
 
-        for (Message m: messages) {
+        for (Message m : messages) {
             NotificationCompat.MessagingStyle.Message message2 = new
                     NotificationCompat.MessagingStyle.Message(
                     m.getMessage(),

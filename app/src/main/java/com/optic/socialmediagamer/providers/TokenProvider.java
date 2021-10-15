@@ -31,7 +31,7 @@ public class TokenProvider {
     }
 
     public Task<DocumentSnapshot> getToken(String idUser) {
-        return  mCollection.document(idUser).get();
+        return mCollection.document(idUser).get();
     }
 
 }

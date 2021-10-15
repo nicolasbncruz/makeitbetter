@@ -64,22 +64,20 @@ public class HomeActivity extends AppCompatActivity {
 
     BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     if (item.getItemId() == R.id.itemHome) {
                         // FRAGMENT HOME
                         openFragment(new HomeFragment());
-                    }
-                    else if (item.getItemId() == R.id.itemChats) {
+                    } else if (item.getItemId() == R.id.itemChats) {
                         // FRAGMENT CHATS
                         openFragment(new ChatsFragment());
 
-                    }
-                    else if (item.getItemId() == R.id.itemFilters) {
+                    } else if (item.getItemId() == R.id.itemFilters) {
                         // FRAGMENT FILTROS
                         openFragment(new FiltersFragment());
 
-                    }
-                    else if (item.getItemId() == R.id.itemProfile) {
+                    } else if (item.getItemId() == R.id.itemProfile) {
                         // FRAGMENT PROFILE
                         openFragment(new ProfileFragment());
                     }

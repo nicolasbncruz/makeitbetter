@@ -69,7 +69,7 @@ public class PostDetailActivity extends AppCompatActivity {
     SliderView mSliderView;
     SliderAdapter mSliderAdapter;
     List<SliderItem> mSliderItems = new ArrayList<>();
-    
+
     PostProvider mPostProvider;
     UsersProvider mUsersProvider;
     CommentsProvider mCommentsProvider;
@@ -164,8 +164,7 @@ public class PostDetailActivity extends AppCompatActivity {
                     int numberLikes = queryDocumentSnapshots.size();
                     if (numberLikes == 1) {
                         mTextViewLikes.setText(numberLikes + " Me gusta");
-                    }
-                    else {
+                    } else {
                         mTextViewLikes.setText(numberLikes + " Me gustas");
                     }
                 }
@@ -219,15 +218,15 @@ public class PostDetailActivity extends AppCompatActivity {
         editText.setHint("Texto");
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
         );
         params.setMargins(36, 0, 36, 36);
         editText.setLayoutParams(params);
         RelativeLayout container = new RelativeLayout(PostDetailActivity.this);
         RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(
-            RelativeLayout.LayoutParams.MATCH_PARENT,
-            RelativeLayout.LayoutParams.WRAP_CONTENT
+                RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT
         );
         container.setLayoutParams(relativeParams);
         container.addView(editText);
@@ -241,8 +240,7 @@ public class PostDetailActivity extends AppCompatActivity {
                 String value = editText.getText().toString();
                 if (!value.isEmpty()) {
                     createComment(value);
-                }
-                else {
+                } else {
                     Toast.makeText(PostDetailActivity.this, "Debe ingresar el comentario", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -270,8 +268,7 @@ public class PostDetailActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     sendNotification(value);
                     Toast.makeText(PostDetailActivity.this, "El comentario se creo correctamente", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     Toast.makeText(PostDetailActivity.this, "No se pudo crear el comentario", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -298,12 +295,10 @@ public class PostDetailActivity extends AppCompatActivity {
                                 if (response.body() != null) {
                                     if (response.body().getSuccess() == 1) {
                                         Toast.makeText(PostDetailActivity.this, "La notificacion se envio correcatemente", Toast.LENGTH_SHORT).show();
-                                    }
-                                    else {
+                                    } else {
                                         Toast.makeText(PostDetailActivity.this, "La notificacion no se pudo enviar", Toast.LENGTH_SHORT).show();
                                     }
-                                }
-                                else {
+                                } else {
                                     Toast.makeText(PostDetailActivity.this, "La notificacion no se pudo enviar", Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -314,8 +309,7 @@ public class PostDetailActivity extends AppCompatActivity {
                             }
                         });
                     }
-                }
-                else {
+                } else {
                     Toast.makeText(PostDetailActivity.this, "El token de notificaciones del usuario no existe", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -327,8 +321,7 @@ public class PostDetailActivity extends AppCompatActivity {
             Intent intent = new Intent(PostDetailActivity.this, UserProfileActivity.class);
             intent.putExtra("idUser", mIdUser);
             startActivity(intent);
-        }
-        else {
+        } else {
             Toast.makeText(this, "El id del usuario aun no se carga", Toast.LENGTH_SHORT).show();
         }
     }
@@ -378,14 +371,11 @@ public class PostDetailActivity extends AppCompatActivity {
 
                         if (category.equals("PS4")) {
                             mImageViewCategory.setImageResource(R.drawable.icon_ps4);
-                        }
-                        else if (category.equals("XBOX")) {
+                        } else if (category.equals("XBOX")) {
                             mImageViewCategory.setImageResource(R.drawable.icon_xbox);
-                        }
-                        else if (category.equals("PC")) {
+                        } else if (category.equals("PC")) {
                             mImageViewCategory.setImageResource(R.drawable.icon_pc);
-                        }
-                        else if (category.equals("NINTENDO")) {
+                        } else if (category.equals("NINTENDO")) {
                             mImageViewCategory.setImageResource(R.drawable.icon_nintendo);
                         }
                     }

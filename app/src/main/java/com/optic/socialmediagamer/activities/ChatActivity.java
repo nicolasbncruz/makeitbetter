@@ -116,7 +116,7 @@ public class ChatActivity extends AppCompatActivity {
 
         mExtraIdUser1 = getIntent().getStringExtra("idUser1");
         mExtraIdUser2 = getIntent().getStringExtra("idUser2");
-        mExtraIdChat  = getIntent().getStringExtra("idChat");
+        mExtraIdChat = getIntent().getStringExtra("idChat");
 
         showCustomToolbar(R.layout.custom_chat_toolbar);
         getMyInfoUser();
@@ -177,7 +177,7 @@ public class ChatActivity extends AppCompatActivity {
                 int numberMessage = mAdapter.getItemCount();
                 int lastMessagePosition = mLinearLayoutManager.findLastCompletelyVisibleItemPosition();
 
-                if (lastMessagePosition == -1 || (positionStart >= (numberMessage -1) && lastMessagePosition == (positionStart - 1))) {
+                if (lastMessagePosition == -1 || (positionStart >= (numberMessage - 1) && lastMessagePosition == (positionStart - 1))) {
                     mRecyclerViewMessage.scrollToPosition(positionStart);
                 }
             }
@@ -192,8 +192,7 @@ public class ChatActivity extends AppCompatActivity {
             if (mAuthProvider.getUid().equals(mExtraIdUser1)) {
                 message.setIdSender(mExtraIdUser1);
                 message.setIdReceiver(mExtraIdUser2);
-            }
-            else {
+            } else {
                 message.setIdSender(mExtraIdUser2);
                 message.setIdReceiver(mExtraIdUser1);
             }
@@ -209,8 +208,7 @@ public class ChatActivity extends AppCompatActivity {
                         mEditTextMessage.setText("");
                         mAdapter.notifyDataSetChanged();
                         getToken(message);
-                    }
-                    else {
+                    } else {
                         Toast.makeText(ChatActivity.this, "El mensaje no se pudo crear", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -248,8 +246,7 @@ public class ChatActivity extends AppCompatActivity {
         String idUserInfo = "";
         if (mAuthProvider.getUid().equals(mExtraIdUser1)) {
             idUserInfo = mExtraIdUser2;
-        }
-        else {
+        } else {
             idUserInfo = mExtraIdUser1;
         }
 
@@ -265,8 +262,7 @@ public class ChatActivity extends AppCompatActivity {
                         boolean online = documentSnapshot.getBoolean("online");
                         if (online) {
                             mTextViewRelativeTime.setText("En linea");
-                        }
-                        else if (documentSnapshot.contains("lastConnect")) {
+                        } else if (documentSnapshot.contains("lastConnect")) {
                             long lastConnect = documentSnapshot.getLong("lastConnect");
                             String relativeTime = RelativeTime.getTimeAgo(lastConnect, ChatActivity.this);
                             mTextViewRelativeTime.setText(relativeTime);
@@ -292,8 +288,7 @@ public class ChatActivity extends AppCompatActivity {
                 int size = queryDocumentSnapshots.size();
                 if (size == 0) {
                     createChat();
-                }
-                else {
+                } else {
                     mExtraIdChat = queryDocumentSnapshots.getDocuments().get(0).getId();
                     mIdNotificationChat = queryDocumentSnapshots.getDocuments().get(0).getLong("idNotification");
                     getMessageChat();
@@ -308,8 +303,7 @@ public class ChatActivity extends AppCompatActivity {
 
         if (mAuthProvider.getUid().equals(mExtraIdUser1)) {
             idSender = mExtraIdUser2;
-        }
-        else {
+        } else {
             idSender = mExtraIdUser1;
         }
 
@@ -349,8 +343,7 @@ public class ChatActivity extends AppCompatActivity {
         String idUser = "";
         if (mAuthProvider.getUid().equals(mExtraIdUser1)) {
             idUser = mExtraIdUser2;
-        }
-        else {
+        } else {
             idUser = mExtraIdUser1;
         }
         mTokenProvider.getToken(idUser).addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -361,8 +354,7 @@ public class ChatActivity extends AppCompatActivity {
                         String token = documentSnapshot.getString("token");
                         getLastThreeMessages(message, token);
                     }
-                }
-                else {
+                } else {
                     Toast.makeText(ChatActivity.this, "El token de notificaciones del usuario no existe", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -375,7 +367,7 @@ public class ChatActivity extends AppCompatActivity {
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 ArrayList<Message> messageArrayList = new ArrayList<>();
 
-                for (DocumentSnapshot d: queryDocumentSnapshots.getDocuments()) {
+                for (DocumentSnapshot d : queryDocumentSnapshots.getDocuments()) {
                     if (d.exists()) {
                         Message message = d.toObject(Message.class);
                         messageArrayList.add(message);
@@ -391,7 +383,7 @@ public class ChatActivity extends AppCompatActivity {
                 Gson gson = new Gson();
                 String messages = gson.toJson(messageArrayList);
 
-               sendNotification(token, messages, message);
+                sendNotification(token, messages, message);
             }
         });
     }
@@ -421,8 +413,7 @@ public class ChatActivity extends AppCompatActivity {
         String idSender = "";
         if (mAuthProvider.getUid().equals(mExtraIdUser1)) {
             idSender = mExtraIdUser2;
-        }
-        else {
+        } else {
             idSender = mExtraIdUser1;
         }
 
@@ -442,12 +433,10 @@ public class ChatActivity extends AppCompatActivity {
                         if (response.body() != null) {
                             if (response.body().getSuccess() == 1) {
                                 //Toast.makeText(ChatActivity.this, "La notificacion se envio correcatemente", Toast.LENGTH_SHORT).show();
-                            }
-                            else {
+                            } else {
                                 Toast.makeText(ChatActivity.this, "La notificacion no se pudo enviar", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                        else {
+                        } else {
                             Toast.makeText(ChatActivity.this, "La notificacion no se pudo enviar", Toast.LENGTH_SHORT).show();
                         }
                     }

@@ -97,7 +97,7 @@ public class PostActivity extends AppCompatActivity {
 
         mBuilderSelector = new AlertDialog.Builder(this);
         mBuilderSelector.setTitle("Selecciona una opcion");
-        options = new CharSequence[] {"Imagen de galeria", "Tomar foto"};
+        options = new CharSequence[]{"Imagen de galeria", "Tomar foto"};
 
         mImageViewPost1 = findViewById(R.id.imageViewPost1);
         mImageViewPost2 = findViewById(R.id.imageViewPost2);
@@ -138,7 +138,7 @@ public class PostActivity extends AppCompatActivity {
                 selectOptionImage(2);
             }
         });
-        
+
         mImageViewPC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -146,7 +146,7 @@ public class PostActivity extends AppCompatActivity {
                 mTextViewCategory.setText(mCategory);
             }
         });
-        
+
         mImageViewPS4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -154,7 +154,7 @@ public class PostActivity extends AppCompatActivity {
                 mTextViewCategory.setText(mCategory);
             }
         });
-        
+
         mImageViewXBOX.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -162,7 +162,7 @@ public class PostActivity extends AppCompatActivity {
                 mTextViewCategory.setText(mCategory);
             }
         });
-        
+
         mImageViewNitendo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -180,16 +180,13 @@ public class PostActivity extends AppCompatActivity {
                 if (i == 0) {
                     if (numberImage == 1) {
                         openGallery(GALLERY_REQUEST_CODE);
-                    }
-                    else if (numberImage == 2) {
+                    } else if (numberImage == 2) {
                         openGallery(GALLERY_REQUEST_CODE_2);
                     }
-                }
-                else if (i == 1){
+                } else if (i == 1) {
                     if (numberImage == 1) {
                         takePhoto(PHOTO_REQUEST_CODE);
-                    }
-                    else if (numberImage == 2) {
+                    } else if (numberImage == 2) {
                         takePhoto(PHOTO_REQUEST_CODE_2);
                     }
                 }
@@ -207,7 +204,7 @@ public class PostActivity extends AppCompatActivity {
             File photoFile = null;
             try {
                 photoFile = createPhotoFile(requestCode);
-            } catch(Exception e) {
+            } catch (Exception e) {
                 Toast.makeText(this, "Hubo un error con el archivo " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
 
@@ -222,15 +219,14 @@ public class PostActivity extends AppCompatActivity {
     private File createPhotoFile(int requestCode) throws IOException {
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File photoFile = File.createTempFile(
-            new Date() + "_photo",
-            ".jpg",
-            storageDir
+                new Date() + "_photo",
+                ".jpg",
+                storageDir
         );
         if (requestCode == PHOTO_REQUEST_CODE) {
             mPhotoPath = "file:" + photoFile.getAbsolutePath();
             mAbsolutePhotoPath = photoFile.getAbsolutePath();
-        }
-        else if (requestCode == PHOTO_REQUEST_CODE_2) {
+        } else if (requestCode == PHOTO_REQUEST_CODE_2) {
             mPhotoPath2 = "file:" + photoFile.getAbsolutePath();
             mAbsolutePhotoPath2 = photoFile.getAbsolutePath();
         }
@@ -239,29 +235,25 @@ public class PostActivity extends AppCompatActivity {
 
 
     private void clickPost() {
-        
+
         mTitle = mTextInputTitle.getText().toString();
         mDescription = mTextInputDescription.getText().toString();
         if (!mTitle.isEmpty() && !mDescription.isEmpty() && !mCategory.isEmpty()) {
             // SELECCIONO AMBAS IMAGENES DE LA GALERIA
-            if (mImageFile != null && mImageFile2 != null ) {
+            if (mImageFile != null && mImageFile2 != null) {
                 saveImage(mImageFile, mImageFile2);
             }
             // TOMO LAS DOS FOTOS DE LA CAMARA
             else if (mPhotoFile != null && mPhotoFile2 != null) {
                 saveImage(mPhotoFile, mPhotoFile2);
-            }
-            else if (mImageFile != null && mPhotoFile2 != null) {
+            } else if (mImageFile != null && mPhotoFile2 != null) {
                 saveImage(mImageFile, mPhotoFile2);
-            }
-            else if (mPhotoFile != null && mImageFile2 != null) {
+            } else if (mPhotoFile != null && mImageFile2 != null) {
                 saveImage(mPhotoFile, mImageFile2);
-            }
-            else {
+            } else {
                 Toast.makeText(this, "Debes seleccionar una imagen", Toast.LENGTH_SHORT).show();
             }
-        }
-        else {
+        } else {
             Toast.makeText(this, "Completa los campos para publicar", Toast.LENGTH_SHORT).show();
         }
     }
@@ -300,16 +292,14 @@ public class PostActivity extends AppCompatActivity {
                                                         if (taskSave.isSuccessful()) {
                                                             clearForm();
                                                             Toast.makeText(PostActivity.this, "La informacion se almaceno correctamente", Toast.LENGTH_SHORT).show();
-                                                        }
-                                                        else {
+                                                        } else {
                                                             Toast.makeText(PostActivity.this, "No se pudo almacenar la informacion", Toast.LENGTH_SHORT).show();
                                                         }
                                                     }
                                                 });
                                             }
                                         });
-                                    }
-                                    else {
+                                    } else {
                                         mDialog.dismiss();
                                         Toast.makeText(PostActivity.this, "La imagen numero 2 no se pudo guardar", Toast.LENGTH_SHORT).show();
                                     }
@@ -317,8 +307,7 @@ public class PostActivity extends AppCompatActivity {
                             });
                         }
                     });
-                }
-                else {
+                } else {
                     mDialog.dismiss();
                     Toast.makeText(PostActivity.this, "Hubo error al almacenar la imagen", Toast.LENGTH_LONG).show();
                 }
@@ -356,7 +345,7 @@ public class PostActivity extends AppCompatActivity {
                 mPhotoFile = null;
                 mImageFile = FileUtil.from(this, data.getData());
                 mImageViewPost1.setImageBitmap(BitmapFactory.decodeFile(mImageFile.getAbsolutePath()));
-            } catch(Exception e) {
+            } catch (Exception e) {
                 Log.d("ERROR", "Se produjo un error " + e.getMessage());
                 Toast.makeText(this, "Se produjo un error " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
@@ -367,7 +356,7 @@ public class PostActivity extends AppCompatActivity {
                 mPhotoFile2 = null;
                 mImageFile2 = FileUtil.from(this, data.getData());
                 mImageViewPost2.setImageBitmap(BitmapFactory.decodeFile(mImageFile2.getAbsolutePath()));
-            } catch(Exception e) {
+            } catch (Exception e) {
                 Log.d("ERROR", "Se produjo un error " + e.getMessage());
                 Toast.makeText(this, "Se produjo un error " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
