@@ -142,7 +142,7 @@ public class PostActivity extends AppCompatActivity {
         mImageViewPC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCategory = "PC";
+                mCategory = "FLEXIONES";
                 mTextViewCategory.setText(mCategory);
             }
         });
@@ -150,7 +150,7 @@ public class PostActivity extends AppCompatActivity {
         mImageViewPS4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCategory = "PS4";
+                mCategory = "CARDIO";
                 mTextViewCategory.setText(mCategory);
             }
         });
@@ -158,7 +158,7 @@ public class PostActivity extends AppCompatActivity {
         mImageViewXBOX.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCategory = "XBOX";
+                mCategory = "FUERZA";
                 mTextViewCategory.setText(mCategory);
             }
         });
@@ -166,7 +166,7 @@ public class PostActivity extends AppCompatActivity {
         mImageViewNitendo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCategory = "NINTENDO";
+                mCategory = "YOGA";
                 mTextViewCategory.setText(mCategory);
             }
         });
@@ -254,7 +254,7 @@ public class PostActivity extends AppCompatActivity {
                 Toast.makeText(this, "Debes seleccionar una imagen", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(this, "Completa los campos para publicar", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Completa los campos para agregar", Toast.LENGTH_SHORT).show();
         }
     }
 

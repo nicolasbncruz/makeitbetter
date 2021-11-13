@@ -37,7 +37,7 @@
                 android:textColor="@color/colorDarkBlue"
         />
 
-        <TextView
+        <!--<TextView
                 android:id="@+id/textViewUsernamePostCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                 android:maxLines="1"
                 android:textStyle="italic"
                 android:textColor="@color/colorBlue"
-        />
+        />ncruz-->
 
         <TextView
                 android:id="@+id/textViewDescriptionPostCard"
@@ -91,7 +91,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center|right"
-                    android:text="0 Me gusta"/>
+                    android:text="0 Participantes"/>
 
         </LinearLayout>
 

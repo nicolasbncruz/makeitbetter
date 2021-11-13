@@ -107,7 +107,7 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (queryDocumentSnapshots != null) {
                     int numberLikes = queryDocumentSnapshots.size();
-                    holder.textViewLikes.setText(String.valueOf(numberLikes) + " Me gusta");
+                    holder.textViewLikes.setText(String.valueOf(numberLikes) + " Participantes");
                 }
             }
         });
@@ -153,7 +153,7 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
                 if (documentSnapshot.exists()) {
                     if (documentSnapshot.contains("username")) {
                         String username = documentSnapshot.getString("username");
-                        holder.textViewUsername.setText("BY: " + username.toUpperCase());
+                        //holder.textViewUsername.setText("BY: " + username.toUpperCase());//ncruz
                     }
                 }
             }
@@ -185,7 +185,7 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
             super(view);
             textViewTitle = view.findViewById(R.id.textViewTitlePostCard);
             textViewDescription = view.findViewById(R.id.textViewDescriptionPostCard);
-            textViewUsername = view.findViewById(R.id.textViewUsernamePostCard);
+            //textViewUsername = view.findViewById(R.id.textViewUsernamePostCard);ncruz
             textViewLikes = view.findViewById(R.id.textViewLikes);
             imageViewPost = view.findViewById(R.id.imageViewPostCard);
             imageViewLike = view.findViewById(R.id.imageViewLike);

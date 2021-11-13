@@ -163,9 +163,9 @@ public class PostDetailActivity extends AppCompatActivity {
                 if (queryDocumentSnapshots != null) {
                     int numberLikes = queryDocumentSnapshots.size();
                     if (numberLikes == 1) {
-                        mTextViewLikes.setText(numberLikes + " Me gusta");
+                        mTextViewLikes.setText(numberLikes + " Participantes");
                     } else {
-                        mTextViewLikes.setText(numberLikes + " Me gusta");
+                        mTextViewLikes.setText(numberLikes + " Participantes");
                     }
                 }
 
@@ -369,13 +369,13 @@ public class PostDetailActivity extends AppCompatActivity {
                         String category = documentSnapshot.getString("category");
                         mTextViewNameCategory.setText(category);
 
-                        if (category.equals("PS4")) {
+                        if (category.equals("CARDIO")) {
                             mImageViewCategory.setImageResource(R.drawable.icon_ps4);
-                        } else if (category.equals("XBOX")) {
+                        } else if (category.equals("FUERZA")) {
                             mImageViewCategory.setImageResource(R.drawable.icon_xbox);
-                        } else if (category.equals("PC")) {
+                        } else if (category.equals("FLEXIONES")) {
                             mImageViewCategory.setImageResource(R.drawable.icon_pc);
-                        } else if (category.equals("NINTENDO")) {
+                        } else if (category.equals("YOGA")) {
                             mImageViewCategory.setImageResource(R.drawable.icon_nintendo);
                         }
                     }

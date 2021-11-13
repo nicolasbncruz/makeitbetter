@@ -48,7 +48,7 @@
                         android:gravity="center_vertical"
                         android:layout_marginLeft="20dp"
                         android:textSize="20dp"
-                        android:text="ACTIVIDADES"/>
+                        android:text="ACTIVIDADES CARDIO"/>
 
             </LinearLayout>
 
@@ -87,7 +87,7 @@
                         android:gravity="center_vertical"
                         android:layout_marginLeft="20dp"
                         android:textSize="20dp"
-                        android:text="DIETA DIARIA"/>
+                        android:text="MÚSCULOS FUERTES"/>
 
             </LinearLayout>
 
@@ -127,7 +127,7 @@
                         android:gravity="center_vertical"
                         android:layout_marginLeft="20dp"
                         android:textSize="20dp"
-                        android:text="RESULTADOS"/>
+                        android:text="FLUJOS DE YOGA"/>
 
             </LinearLayout>
 
@@ -166,7 +166,7 @@
                         android:gravity="center_vertical"
                         android:layout_marginLeft="20dp"
                         android:textSize="20dp"
-                        android:text="MIS DATOS"/>
+                        android:text="RUTINAS FLEXIONES"/>
 
             </LinearLayout>
 

@@ -190,18 +190,17 @@
                     android:layout_marginLeft="3dp">
 
                 <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        app:cardBackgroundColor="@color/colorDarkBlue"
-                        app:cardCornerRadius="5dp"
-                        app:cardElevation="10dp"
-                >
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    app:cardBackgroundColor="@color/colorWhite"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="10dp">
 
                     <ImageView
-                            android:id="@+id/imageViewPc"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/icon_pc"/>
+                        android:id="@+id/imageViewPc"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_pc" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -225,17 +224,17 @@
                     android:layout_marginLeft="3dp">
 
                 <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        app:cardBackgroundColor="@color/colorDarkBlue"
-                        app:cardCornerRadius="5dp"
-                        app:cardElevation="10dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    app:cardBackgroundColor="@color/colorWhite"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="10dp">
 
                     <ImageView
-                            android:id="@+id/imageViewPS4"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/icon_ps4"/>
+                        android:id="@+id/imageViewPS4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_ps4" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -259,18 +258,17 @@
                     android:layout_marginLeft="3dp">
 
                 <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        app:cardBackgroundColor="@color/colorDarkBlue"
-                        app:cardCornerRadius="5dp"
-                        app:cardElevation="10dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    app:cardBackgroundColor="@color/colorWhite"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="10dp">
 
                     <ImageView
-                            android:id="@+id/imageViewXbox"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/icon_xbox"
-                            android:padding="5dp"/>
+                        android:id="@+id/imageViewXbox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_xbox" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -294,17 +292,17 @@
                     android:layout_marginLeft="3dp">
 
                 <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        app:cardBackgroundColor="@color/colorDarkBlue"
-                        app:cardCornerRadius="5dp"
-                        app:cardElevation="10dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    app:cardBackgroundColor="@color/colorWhite"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="10dp">
 
                     <ImageView
-                            android:id="@+id/imageViewNintendo"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/icon_nintendo"/>
+                        android:id="@+id/imageViewNintendo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_nintendo" />
 
                 </androidx.cardview.widget.CardView>
 

@@ -42,28 +42,28 @@ public class FiltersFragment extends Fragment {
         mCardViewPS4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToFilterActivity("PS4");
+                goToFilterActivity("CARDIO");
             }
         });
 
         mCardViewXBOX.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToFilterActivity("XBOX");
+                goToFilterActivity("FUERZA");
             }
         });
 
         mCardViewNINTENDO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToFilterActivity("NINTENDO");
+                goToFilterActivity("YOGA");
             }
         });
 
         mCardViewPC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToFilterActivity("PC");
+                goToFilterActivity("FLEXIONES");
             }
         });
 

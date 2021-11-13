@@ -106,7 +106,7 @@ public class ProfileFragment extends Fragment {
                 if (queryDocumentSnapshots != null) {
                     int numberPost = queryDocumentSnapshots.size();
                     if (numberPost > 0) {
-                        mTextViewPostExist.setText("Ejercicios");
+                        mTextViewPostExist.setText("Ejercicios seleccionados");
                         mTextViewPostExist.setTextColor(Color.RED);
                     } else {
                         mTextViewPostExist.setText("No hay ejercicios");
