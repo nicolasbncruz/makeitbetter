@@ -107,7 +107,7 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (queryDocumentSnapshots != null) {
                     int numberLikes = queryDocumentSnapshots.size();
-                    holder.textViewLikes.setText(String.valueOf(numberLikes) + " Me gustas");
+                    holder.textViewLikes.setText(String.valueOf(numberLikes) + " Me gusta");
                 }
             }
         });

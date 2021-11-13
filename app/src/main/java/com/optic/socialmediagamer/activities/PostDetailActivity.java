@@ -165,7 +165,7 @@ public class PostDetailActivity extends AppCompatActivity {
                     if (numberLikes == 1) {
                         mTextViewLikes.setText(numberLikes + " Me gusta");
                     } else {
-                        mTextViewLikes.setText(numberLikes + " Me gustas");
+                        mTextViewLikes.setText(numberLikes + " Me gusta");
                     }
                 }
 
