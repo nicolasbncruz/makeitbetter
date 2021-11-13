@@ -17,6 +17,12 @@
                 android:layout_height="225dp"
                 android:scaleType="centerCrop"
         />
+        <!--<pl.droidsonroids.gif.GifImageView
+                android:id="@+id/imageViewPostCard"
+                android:layout_width="match_parent"
+                android:layout_height="225dp"
+                android:scaleType="centerCrop"
+        />-->
 
         <TextView
                 android:id="@+id/textViewTitlePostCard"

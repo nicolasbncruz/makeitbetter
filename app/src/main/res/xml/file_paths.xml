@@ -2,6 +2,6 @@
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
     <external-path
             name="SocialMediaGamer"
-            path="Android/data/com.optic.socialmediagamer/files/Pictures"/>
+            path="Android/data/com.optic.makeitbetter/files/Pictures"/>
 
 </paths>

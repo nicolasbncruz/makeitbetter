@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.optic.socialmediagamer">
+          package="com.optic.makeitbetter">
 
     <uses-feature
             android:name="android.hardware.camera2"
@@ -17,21 +17,21 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activities.ChatActivity"></activity>
+        <activity android:name="com.optic.makeitbetter.activities.ChatActivity"></activity>
         <activity
-                android:name=".activities.FiltersActivity"
-                android:parentActivityName=".activities.HomeActivity"/>
+                android:name="com.optic.makeitbetter.activities.FiltersActivity"
+                android:parentActivityName="com.optic.makeitbetter.activities.HomeActivity"/>
         <activity
-                android:name=".activities.UserProfileActivity"
-                android:parentActivityName=".activities.PostDetailActivity"/>
+                android:name="com.optic.makeitbetter.activities.UserProfileActivity"
+                android:parentActivityName="com.optic.makeitbetter.activities.PostDetailActivity"/>
         <activity
-                android:name=".activities.PostDetailActivity"
-                android:parentActivityName=".activities.HomeActivity"/>
-        <activity android:name=".activities.EditProfileActivity"/>
+                android:name="com.optic.makeitbetter.activities.PostDetailActivity"
+                android:parentActivityName="com.optic.makeitbetter.activities.HomeActivity"/>
+        <activity android:name="com.optic.makeitbetter.activities.EditProfileActivity"/>
 
         <provider
                 android:name="androidx.core.content.FileProvider"
-                android:authorities="com.optic.socialmediagamer"
+                android:authorities="com.optic.makeitbetter"
                 android:exported="false"
                 android:grantUriPermissions="true">
             <meta-data
@@ -39,11 +39,11 @@
                     android:resource="@xml/file_paths"/>
         </provider>
 
-        <activity android:name=".activities.PostActivity"/>
-        <activity android:name=".activities.CompleteProfileActivity"/>
-        <activity android:name=".activities.HomeActivity"/>
-        <activity android:name=".activities.RegisterActivity"/>
-        <activity android:name=".activities.MainActivity">
+        <activity android:name="com.optic.makeitbetter.activities.PostActivity"/>
+        <activity android:name="com.optic.makeitbetter.activities.CompleteProfileActivity"/>
+        <activity android:name="com.optic.makeitbetter.activities.HomeActivity"/>
+        <activity android:name="com.optic.makeitbetter.activities.RegisterActivity"/>
+        <activity android:name="com.optic.makeitbetter.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -52,7 +52,7 @@
         </activity>
 
         <service
-                android:name=".services.MyFirebaseMessagingClient"
+                android:name="com.optic.makeitbetter.services.MyFirebaseMessagingClient"
                 android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
@@ -63,7 +63,7 @@
                 android:name="com.google.firebase.messaging.default_notification_channel_id"
                 android:value="@string/default_notification_channel_id"/>
 
-        <receiver android:name=".receivers.MessageReceiver"
+        <receiver android:name="com.optic.makeitbetter.receivers.MessageReceiver"
                   android:enabled="true"
                   android:exported="false"/>
 

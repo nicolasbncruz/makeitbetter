@@ -23,7 +23,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:text="CREAR PUBLICACIÓN"
+                    android:text="AGREGAR EJERCICIO"
                     android:textColor="@color/colorWhite"
                     android:textSize="20dp"
                     android:textStyle="bold"
@@ -45,12 +45,18 @@
                         android:layout_marginRight="10dp"
                         app:cardCornerRadius="10dp">
 
-                    <ImageView
+                     <ImageView
                             android:id="@+id/imageViewPost1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:src="@drawable/upload_image"
                             android:scaleType="centerCrop"/>
+                    <!--<pl.droidsonroids.gif.GifImageView
+                        android:id="@+id/imageViewPost1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/upload_image"
+                        android:scaleType="centerCrop"/>-->
 
                 </androidx.cardview.widget.CardView>
 
@@ -68,6 +74,12 @@
                             android:layout_height="match_parent"
                             android:src="@drawable/upload_image"
                             android:scaleType="centerCrop"/>
+                    <!--<pl.droidsonroids.gif.GifImageView
+                        android:id="@+id/imageViewPost2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/upload_image"
+                        android:scaleType="centerCrop"/>-->
 
                 </androidx.cardview.widget.CardView>
 
@@ -99,7 +111,7 @@
                         android:id="@+id/textInputVideoGame"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Nombre del juego"
+                        android:hint="Nombre del ejercicio"
                         android:inputType="text"
                 />
 
@@ -147,7 +159,7 @@
                 android:id="@+id/textViewCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CATEGORIAS"
+                android:text="TIPOS DE RUTINAS"
                 android:textAlignment="center"
                 android:layout_marginTop="20dp"
                 android:textSize="17dp"/>
@@ -196,11 +208,11 @@
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="PC"
+                        android:text="FLEXIONES"
                         android:textAlignment="center"
                         android:textColor="@color/colorBlack"
                         android:textStyle="bold"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="3dp"/>
 
             </LinearLayout>
 
@@ -230,11 +242,11 @@
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="PS4"
+                        android:text="CARDIO"
                         android:textAlignment="center"
                         android:textColor="@color/colorBlack"
                         android:textStyle="bold"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="3dp"/>
 
             </LinearLayout>
 
@@ -265,11 +277,11 @@
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="XBOX"
+                        android:text="FUERZA"
                         android:textAlignment="center"
                         android:textColor="@color/colorBlack"
                         android:textStyle="bold"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="3dp"/>
 
             </LinearLayout>
 
@@ -299,11 +311,11 @@
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="NINTENDO"
+                        android:text="YOGA"
                         android:textAlignment="center"
                         android:textColor="@color/colorBlack"
                         android:textStyle="bold"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="3dp"/>
 
             </LinearLayout>
 
@@ -315,7 +327,7 @@
             android:id="@+id/btnPost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PUBLICAR"
+            android:text="AGREGAR"
             android:background="@drawable/rounded_button"
             android:backgroundTint="@color/colorBlue"
             android:layout_gravity="bottom"

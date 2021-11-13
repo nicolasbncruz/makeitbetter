@@ -1,42 +1,41 @@
 {
   "project_info": {
-    "project_number": "468759644684",
-    "firebase_url": "https://socialmediagamer-bebe1.firebaseio.com",
-    "project_id": "socialmediagamer-bebe1",
-    "storage_bucket": "socialmediagamer-bebe1.appspot.com"
+    "project_number": "470981396740",
+    "project_id": "makeitbetter-9a804",
+    "storage_bucket": "makeitbetter-9a804.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:468759644684:android:4fb88f9eccf9df8ccfbc29",
+        "mobilesdk_app_id": "1:470981396740:android:bc41dda0bb7652c7092851",
         "android_client_info": {
-          "package_name": "com.optic.socialmediagamer"
+          "package_name": "com.optic.makeitbetter"
         }
       },
       "oauth_client": [
         {
-          "client_id": "468759644684-p29m8q5gou7pkq91c67ijobv7e4jk4vt.apps.googleusercontent.com",
+          "client_id": "470981396740-gi8camugndiofq5recg6vk3qo15nv97a.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.optic.socialmediagamer",
-            "certificate_hash": "4b173291c09334fdf4cc745d672e15f5552e6ded"
+            "package_name": "com.optic.makeitbetter",
+            "certificate_hash": "d932ef7625fef6b383606c26e8e3301e9352fed6"
           }
         },
         {
-          "client_id": "468759644684-acm5i60pb81lsu4qlcd8t5cu89jv4amt.apps.googleusercontent.com",
+          "client_id": "470981396740-3hlujf852mmsuebc3fel4j8am7e12grq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCxnU090LT6lB83zGdpB_D3FbSyLjGpq4o"
+          "current_key": "AIzaSyCnQ_mkdgTnAX0H29I9lME509V2H16Uqe8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "468759644684-acm5i60pb81lsu4qlcd8t5cu89jv4amt.apps.googleusercontent.com",
+              "client_id": "470981396740-3hlujf852mmsuebc3fel4j8am7e12grq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

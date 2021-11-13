@@ -98,7 +98,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="PUBLICACIONES"
+                            android:text="EJERCICIOS"
                             android:textColor="@color/colorWhite"
                             android:textStyle="bold"
                             android:textSize="13dp"/>
@@ -178,7 +178,7 @@
                     android:id="@+id/textViewPostExist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No hay publicaciones"
+                    android:text="No hay ejercicios"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
