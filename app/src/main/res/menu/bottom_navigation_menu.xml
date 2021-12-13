@@ -12,8 +12,8 @@
 
     <item
             android:id="@+id/itemChats"
-            android:icon="@drawable/ic_chat"
-            android:title="Chats"/>
+            android:icon="@drawable/ic_action_compass"
+            android:title="Predicción"/>
     <item
             android:id="@+id/itemProfile"
             android:icon="@drawable/ic_person"

@@ -89,8 +89,8 @@ public class MyPostsAdapter extends FirestoreRecyclerAdapter<Post, MyPostsAdapte
     private void showConfirmDelete(final String postId) {
         new AlertDialog.Builder(context)
                 .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Eliminar ejercicio")
-                .setMessage("¿Estas seguro de realizar esta accion?")
+                .setTitle("Completar ejercicio")
+                .setMessage("¿Estas seguro de haber terminado el ejercicio?")
                 .setPositiveButton("SI", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

@@ -48,7 +48,7 @@ public class ChatsFragment extends Fragment {
         mToolbar = mView.findViewById(R.id.toolbar);
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Chats");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Predicción");
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(linearLayoutManager);

@@ -55,11 +55,11 @@ public class ChatsAdapter extends FirestoreRecyclerAdapter<Chat, ChatsAdapter.Vi
 
         DocumentSnapshot document = getSnapshots().getSnapshot(position);
         final String chatId = document.getId();
-        if (mAuthProvider.getUid().equals(chat.getIdUser1())) {
+        /*if (mAuthProvider.getUid().equals(chat.getIdUser1())) {ncruz
             getUserInfo(chat.getIdUser2(), holder);
         } else {
             getUserInfo(chat.getIdUser1(), holder);
-        }
+        }*/
 
         holder.viewHolder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +68,7 @@ public class ChatsAdapter extends FirestoreRecyclerAdapter<Chat, ChatsAdapter.Vi
             }
         });
 
-        getLastMessage(chatId, holder.textViewLastMessage);
+        //getLastMessage(chatId, holder.textViewLastMessage);
 
         String idSender = "";
         if (mAuthProvider.getUid().equals(chat.getIdUser1())) {
@@ -76,7 +76,7 @@ public class ChatsAdapter extends FirestoreRecyclerAdapter<Chat, ChatsAdapter.Vi
         } else {
             idSender = chat.getIdUser1();
         }
-        getMessageNotRead(chatId, idSender, holder.textViewMessageNotRead, holder.frameLayoutMessageNotRead);
+        //getMessageNotRead(chatId, idSender, holder.textViewMessageNotRead, holder.frameLayoutMessageNotRead);ncruz
 
     }
 
@@ -155,7 +155,8 @@ public class ChatsAdapter extends FirestoreRecyclerAdapter<Chat, ChatsAdapter.Vi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_chats, parent, false);
+        //View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_chats, parent, false);ncruz
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.prediccion, parent, false);
         return new ViewHolder(view);
     }
 

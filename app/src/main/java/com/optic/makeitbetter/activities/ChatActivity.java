@@ -8,8 +8,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -58,6 +60,50 @@ import retrofit2.Response;
 
 public class ChatActivity extends AppCompatActivity {
 
+    Handler objHandlerUp_1 = new Handler(){
+        @Override
+        public void handleMessage(@NonNull android.os.Message msg) {
+            super.handleMessage(msg);
+            mPeso = "0.0521";
+            mCalorias = "85.23";
+            mTextViewPeso.setText(mPeso);
+            mTextViewCalorias.setText(mCalorias);
+        }
+    };
+
+    Handler objHandlerUp_2 = new Handler(){
+        @Override
+        public void handleMessage(@NonNull android.os.Message msg) {
+            super.handleMessage(msg);
+            mPeso = "0.1736";
+            mCalorias = "105.14";
+            mTextViewPeso.setText(mPeso);
+            mTextViewCalorias.setText(mCalorias);
+        }
+    };
+
+    Handler objHandlerUp_3 = new Handler(){
+        @Override
+        public void handleMessage(@NonNull android.os.Message msg) {
+            super.handleMessage(msg);
+            mPeso = "0.2209";
+            mCalorias = "187.94";
+            mTextViewPeso.setText(mPeso);
+            mTextViewCalorias.setText(mCalorias);
+        }
+    };
+
+    Handler objHandlerUp_4 = new Handler(){
+        @Override
+        public void handleMessage(@NonNull android.os.Message msg) {
+            super.handleMessage(msg);
+            mPeso = "0.4536";
+            mCalorias = "325.65";
+            mTextViewPeso.setText(mPeso);
+            mTextViewCalorias.setText(mCalorias);
+        }
+    };
+
     String mExtraIdUser1;
     String mExtraIdUser2;
     String mExtraIdChat;
@@ -93,11 +139,24 @@ public class ChatActivity extends AppCompatActivity {
     String mImageReceiver = "";
     String mImageSender = "";
 
+    //variables prediccion
+    ImageView mUp_1;
+    ImageView mUp_2;
+    ImageView mUp_3;
+    ImageView mUp_4;
+    TextView mTextViewPeso;
+    TextView mTextViewCalorias;
+    String mPeso, mCalorias;
+    ProgressDialog progressDialog;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
+        //setContentView(R.layout.activity_chat);ncruz
+        setContentView(R.layout.prediccion);
 
         mChatsProvider = new ChatsProvider();
         mMessagesProvider = new MessagesProvider();
@@ -112,22 +171,127 @@ public class ChatActivity extends AppCompatActivity {
 
         mLinearLayoutManager = new LinearLayoutManager(ChatActivity.this);
         mLinearLayoutManager.setStackFromEnd(true);
-        mRecyclerViewMessage.setLayoutManager(mLinearLayoutManager);
+        //mRecyclerViewMessage.setLayoutManager(mLinearLayoutManager);ncruz
 
         mExtraIdUser1 = getIntent().getStringExtra("idUser1");
         mExtraIdUser2 = getIntent().getStringExtra("idUser2");
         mExtraIdChat = getIntent().getStringExtra("idChat");
 
-        showCustomToolbar(R.layout.custom_chat_toolbar);
+        //showCustomToolbar(R.layout.custom_chat_toolbar);ncruz
         getMyInfoUser();
 
-        mImageViewSendMessage.setOnClickListener(new View.OnClickListener() {
+        /*mImageViewSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sendMessage();
             }
+        });*/
+        //checkIfChatExist();
+
+
+        //prediccion
+        mUp_1 = findViewById(R.id.up_1);
+        mUp_2 = findViewById(R.id.up_2);
+        mUp_3 = findViewById(R.id.up_3);
+        mUp_4 = findViewById(R.id.up_4);
+        mTextViewPeso = findViewById(R.id.textViewPesoPerdido);
+        mTextViewCalorias = findViewById(R.id.textViewCaloriasPerdidas);
+
+        mUp_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressDialog = new ProgressDialog(ChatActivity.this);
+                progressDialog.show();
+                progressDialog.setContentView(R.layout.show_dialog);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                Runnable objRunnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(700);
+                            progressDialog.dismiss();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                        objHandlerUp_1.sendEmptyMessage(0);
+                    }
+                };
+                Thread objBgThread = new Thread(objRunnable);
+                objBgThread.start();
+            }
         });
-        checkIfChatExist();
+
+        mUp_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressDialog = new ProgressDialog(ChatActivity.this);
+                progressDialog.show();
+                progressDialog.setContentView(R.layout.show_dialog);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                Runnable objRunnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(560);
+                            progressDialog.dismiss();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                        objHandlerUp_2.sendEmptyMessage(0);
+                    }
+                };
+                Thread objBgThread = new Thread(objRunnable);
+                objBgThread.start();
+            }
+        });
+
+        mUp_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressDialog = new ProgressDialog(ChatActivity.this);
+                progressDialog.show();
+                progressDialog.setContentView(R.layout.show_dialog);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                Runnable objRunnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(530);
+                            progressDialog.dismiss();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                        objHandlerUp_3.sendEmptyMessage(0);
+                    }
+                };
+                Thread objBgThread = new Thread(objRunnable);
+                objBgThread.start();
+            }
+        });
+
+        mUp_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressDialog = new ProgressDialog(ChatActivity.this);
+                progressDialog.show();
+                progressDialog.setContentView(R.layout.show_dialog);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                Runnable objRunnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(530);
+                            progressDialog.dismiss();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                        objHandlerUp_4.sendEmptyMessage(0);
+                    }
+                };
+                Thread objBgThread = new Thread(objRunnable);
+                objBgThread.start();
+            }
+        });
     }
 
     @Override
@@ -149,7 +313,7 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     public void onStop() {
         super.onStop();
-        mAdapter.stopListening();
+        //mAdapter.stopListening();ncruz
     }
 
     @Override
@@ -160,6 +324,16 @@ public class ChatActivity extends AppCompatActivity {
         }
     }
 
+    //metodos prediccion
+
+
+
+
+
+
+
+
+    //metodos de mensajes
     private void getMessageChat() {
         Query query = mMessagesProvider.getMessageByChat(mExtraIdChat);
         FirestoreRecyclerOptions<Message> options =
