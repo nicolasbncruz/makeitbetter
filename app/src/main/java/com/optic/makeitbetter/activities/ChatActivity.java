@@ -66,7 +66,7 @@ public class ChatActivity extends AppCompatActivity {
             super.handleMessage(msg);
             mPeso = "0.0521";
             mCalorias = "85.23";
-            mPlan = "EN UNA SEMANA PODRÍAS PERDER...";
+            mPlan = "EN 1 SEMANA PODRÍAS PERDER...";
             mTextViewPeso.setText(mPeso);
             mTextViewCalorias.setText(mCalorias);
             mTextViewPlan.setText(mPlan);
@@ -79,7 +79,7 @@ public class ChatActivity extends AppCompatActivity {
             super.handleMessage(msg);
             mPeso = "0.1736";
             mCalorias = "105.14";
-            mPlan = "EN DOS SEMANAS PODRÍAS PERDER...";
+            mPlan = "EN 2 SEMANAS PODRÍAS PERDER...";
             mTextViewPeso.setText(mPeso);
             mTextViewCalorias.setText(mCalorias);
             mTextViewPlan.setText(mPlan);
@@ -105,7 +105,7 @@ public class ChatActivity extends AppCompatActivity {
             super.handleMessage(msg);
             mPeso = "0.4536";
             mCalorias = "325.65";
-            mPlan = "EN UN MES PODRÍAS PERDER...";
+            mPlan = "EN 1 MES PODRÍAS PERDER...";
             mTextViewPeso.setText(mPeso);
             mTextViewCalorias.setText(mCalorias);
             mTextViewPlan.setText(mPlan);
