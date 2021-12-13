@@ -66,8 +66,10 @@ public class ChatActivity extends AppCompatActivity {
             super.handleMessage(msg);
             mPeso = "0.0521";
             mCalorias = "85.23";
+            mPlan = "EN UNA SEMANA PODRÍAS PERDER...";
             mTextViewPeso.setText(mPeso);
             mTextViewCalorias.setText(mCalorias);
+            mTextViewPlan.setText(mPlan);
         }
     };
 
@@ -77,8 +79,10 @@ public class ChatActivity extends AppCompatActivity {
             super.handleMessage(msg);
             mPeso = "0.1736";
             mCalorias = "105.14";
+            mPlan = "EN DOS SEMANAS PODRÍAS PERDER...";
             mTextViewPeso.setText(mPeso);
             mTextViewCalorias.setText(mCalorias);
+            mTextViewPlan.setText(mPlan);
         }
     };
 
@@ -88,8 +92,10 @@ public class ChatActivity extends AppCompatActivity {
             super.handleMessage(msg);
             mPeso = "0.2209";
             mCalorias = "187.94";
+            mPlan = "EN 21 DÍAS PODRÍAS PERDER...";
             mTextViewPeso.setText(mPeso);
             mTextViewCalorias.setText(mCalorias);
+            mTextViewPlan.setText(mPlan);
         }
     };
 
@@ -99,8 +105,10 @@ public class ChatActivity extends AppCompatActivity {
             super.handleMessage(msg);
             mPeso = "0.4536";
             mCalorias = "325.65";
+            mPlan = "EN UN MES PODRÍAS PERDER...";
             mTextViewPeso.setText(mPeso);
             mTextViewCalorias.setText(mCalorias);
+            mTextViewPlan.setText(mPlan);
         }
     };
 
@@ -146,7 +154,8 @@ public class ChatActivity extends AppCompatActivity {
     ImageView mUp_4;
     TextView mTextViewPeso;
     TextView mTextViewCalorias;
-    String mPeso, mCalorias;
+    TextView mTextViewPlan;
+    String mPeso, mCalorias, mPlan;
     ProgressDialog progressDialog;
 
 
@@ -177,6 +186,7 @@ public class ChatActivity extends AppCompatActivity {
         mExtraIdUser2 = getIntent().getStringExtra("idUser2");
         mExtraIdChat = getIntent().getStringExtra("idChat");
 
+
         //showCustomToolbar(R.layout.custom_chat_toolbar);ncruz
         getMyInfoUser();
 
@@ -196,6 +206,7 @@ public class ChatActivity extends AppCompatActivity {
         mUp_4 = findViewById(R.id.up_4);
         mTextViewPeso = findViewById(R.id.textViewPesoPerdido);
         mTextViewCalorias = findViewById(R.id.textViewCaloriasPerdidas);
+        mTextViewPlan = findViewById(R.id.textViewPlan);
 
         mUp_1.setOnClickListener(new View.OnClickListener() {
             @Override

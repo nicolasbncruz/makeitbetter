@@ -42,7 +42,7 @@
 
 
         <TextView
-            android:id="@+id/textViewCategory"
+            android:id="@+id/textViewPlan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="PROGRESO ESTIMADO ( ≈ )"
@@ -51,6 +51,7 @@
             android:layout_marginTop="60dp"
             android:paddingBottom="50dp"
             android:textSize="17dp"/>
+
 
 
         <LinearLayout
