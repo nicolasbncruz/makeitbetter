@@ -170,6 +170,7 @@ public class PostActivity extends AppCompatActivity {
                 mTextViewCategory.setText(mCategory);
             }
         });
+
     }
 
     private void selectOptionImage(final int numberImage) {

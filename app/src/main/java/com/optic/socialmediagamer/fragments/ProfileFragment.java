@@ -26,7 +26,9 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.optic.socialmediagamer.R;
 import com.optic.socialmediagamer.activities.EditProfileActivity;
+import com.optic.socialmediagamer.adapters.MyExercisesAdapter;
 import com.optic.socialmediagamer.adapters.MyPostsAdapter;
+import com.optic.socialmediagamer.models.Exercise;
 import com.optic.socialmediagamer.models.Post;
 import com.optic.socialmediagamer.providers.AuthProvider;
 import com.optic.socialmediagamer.providers.ExerciseProvider;
@@ -57,8 +59,8 @@ public class ProfileFragment extends Fragment {
     PostProvider mPostProvider;
     ExerciseProvider mExerciseProvider;
 
-    MyPostsAdapter mAdapter;
-
+//    MyPostsAdapter mAdapter;
+    MyExercisesAdapter mAdapter;
     ListenerRegistration mListener;
 
     public ProfileFragment() {
@@ -96,15 +98,36 @@ public class ProfileFragment extends Fragment {
         mPostProvider = new PostProvider();
         mExerciseProvider = new ExerciseProvider();
 
-        System.out.println("LOG: Se crea la lista temporal de ejercicios");
+        System.out.println("LOG: Aqui debo traer la lista De Ejercicios!!!");
         getUser();
-        getPostNumber();
-        checkIfExistPostAndExercise();
+//        getPostNumber();
+        getExerciseNumber();
+//        checkIfExistPost();
+        checkIfExistExercise();
         return mView;
     }
 
-    private void checkIfExistPostAndExercise() {
+    private void checkIfExistPost() {
         mListener = mPostProvider.getPostByUser(mAuthProvider.getUid()).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                if (queryDocumentSnapshots != null) {
+                    int numberPost = queryDocumentSnapshots.size();
+                    if (numberPost > 0) {
+                        mTextViewPostExist.setText("Ejercicios seleccionados");
+                        mTextViewPostExist.setTextColor(Color.RED);
+                    }
+                    else {
+                        mTextViewPostExist.setText("No hay ejercicios");
+                        mTextViewPostExist.setTextColor(Color.GRAY);
+                    }
+                }
+
+            }
+        });
+    }
+    private void checkIfExistExercise() {
+        mListener = mExerciseProvider.getExerciseByUser(mAuthProvider.getUid()).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (queryDocumentSnapshots != null) {
@@ -126,12 +149,18 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        Query query = mPostProvider.getPostByUser(mAuthProvider.getUid());
+        /*Query query = mPostProvider.getPostByUser(mAuthProvider.getUid());
         FirestoreRecyclerOptions<Post> options =
                 new FirestoreRecyclerOptions.Builder<Post>()
                         .setQuery(query, Post.class)
+                        .build();*/
+        Query query = mExerciseProvider.getExerciseByUser(mAuthProvider.getUid());
+        FirestoreRecyclerOptions<Exercise> options =
+                new FirestoreRecyclerOptions.Builder<Exercise>()
+                        .setQuery(query, Exercise.class)
                         .build();
-        mAdapter = new MyPostsAdapter(options, getContext());
+        mAdapter = new MyExercisesAdapter(options, getContext());
+//        mAdapter = new MyPostsAdapter(options, getContext());
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.startListening();
     }
@@ -163,14 +192,16 @@ public class ProfileFragment extends Fragment {
                 mTextViewPostNumber.setText(String.valueOf(numberPost));
             }
         });
+    }
 
-//        mExerciseProvider.getExerciseByUser(mAuthProvider.getUid()).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//            @Override
-//            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-//                int numberExercise = queryDocumentSnapshots.size();
-//                mTextViewPostNumber.setText(String.valueOf(numberExercise + Integer.parseInt(mTextViewPostNumber.toString())));
-//            }
-//        });
+    private void getExerciseNumber(){
+        mExerciseProvider.getExerciseByUser(mAuthProvider.getUid()).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                int numberExercise = queryDocumentSnapshots.size();
+                mTextViewPostNumber.setText(String.valueOf(numberExercise));
+            }
+        });
     }
 
     private void getUser() {

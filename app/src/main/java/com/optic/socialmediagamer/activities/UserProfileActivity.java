@@ -26,9 +26,12 @@ import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.optic.socialmediagamer.R;
+import com.optic.socialmediagamer.adapters.MyExercisesAdapter;
 import com.optic.socialmediagamer.adapters.MyPostsAdapter;
+import com.optic.socialmediagamer.models.Exercise;
 import com.optic.socialmediagamer.models.Post;
 import com.optic.socialmediagamer.providers.AuthProvider;
+import com.optic.socialmediagamer.providers.ExerciseProvider;
 import com.optic.socialmediagamer.providers.PostProvider;
 import com.optic.socialmediagamer.providers.UsersProvider;
 import com.optic.socialmediagamer.utils.ViewedMessageHelper;
@@ -54,10 +57,12 @@ public class UserProfileActivity extends AppCompatActivity {
     UsersProvider mUsersProvider;
     AuthProvider mAuthProvider;
     PostProvider mPostProvider;
+    ExerciseProvider mExerciseProvider;
 
     String mExtraIdUser;
 
     MyPostsAdapter mAdapter;
+//    MyExercisesAdapter mAdapter;
 
     ListenerRegistration mListener;
 
@@ -89,6 +94,7 @@ public class UserProfileActivity extends AppCompatActivity {
         mUsersProvider = new UsersProvider();
         mAuthProvider = new AuthProvider();
         mPostProvider = new PostProvider();
+        mExerciseProvider = new ExerciseProvider();
 
         mExtraIdUser = getIntent().getStringExtra("idUser");
 
@@ -106,7 +112,6 @@ public class UserProfileActivity extends AppCompatActivity {
         getUser();
         getPostNumber();
         checkIfExistPost();
-        System.out.println("LOG: Aqui debo traer la lista!!!");
     }
 
     private void goToChatActivity() {
@@ -119,11 +124,19 @@ public class UserProfileActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        Query query = mPostProvider.getPostByUser(mExtraIdUser);
-        FirestoreRecyclerOptions<Post> options =
-                new FirestoreRecyclerOptions.Builder<Post>()
-                        .setQuery(query, Post.class)
+        /*Query query = mExerciseProvider.getExerciseByUser(mExtraIdUser);
+        FirestoreRecyclerOptions<Exercise> options = new FirestoreRecyclerOptions.Builder<Exercise>()
+                        .setQuery(query, Exercise.class)
                         .build();
+        mAdapter = new MyExercisesAdapter(options, UserProfileActivity.this);
+        mRecyclerView.setAdapter(mAdapter);
+        mAdapter.startListening();
+        ViewedMessageHelper.updateOnline(true, UserProfileActivity.this);*/
+
+        Query query = mPostProvider.getPostByUser(mExtraIdUser);
+        FirestoreRecyclerOptions<Post> options = new FirestoreRecyclerOptions.Builder<Post>()
+                .setQuery(query, Post.class)
+                .build();
         mAdapter = new MyPostsAdapter(options, UserProfileActivity.this);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.startListening();

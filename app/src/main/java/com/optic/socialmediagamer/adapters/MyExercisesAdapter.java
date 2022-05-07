@@ -12,52 +12,47 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.optic.socialmediagamer.R;
+import com.optic.socialmediagamer.activities.ExerciseDetailActivity;
 import com.optic.socialmediagamer.activities.PostDetailActivity;
-import com.optic.socialmediagamer.models.Like;
+import com.optic.socialmediagamer.models.Exercise;
 import com.optic.socialmediagamer.models.Post;
 import com.optic.socialmediagamer.providers.AuthProvider;
+import com.optic.socialmediagamer.providers.ExerciseProvider;
 import com.optic.socialmediagamer.providers.LikesProvider;
 import com.optic.socialmediagamer.providers.PostProvider;
 import com.optic.socialmediagamer.providers.UsersProvider;
 import com.optic.socialmediagamer.utils.RelativeTime;
 import com.squareup.picasso.Picasso;
 
-import java.util.Date;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MyPostsAdapter extends FirestoreRecyclerAdapter<Post, MyPostsAdapter.ViewHolder> {
+public class MyExercisesAdapter extends FirestoreRecyclerAdapter<Exercise, MyExercisesAdapter.ViewHolder> {
 
     Context context;
     UsersProvider mUsersProvider;
     LikesProvider mLikesProvider;
     AuthProvider mAuthProvider;
-    PostProvider mPostProvider;
+    ExerciseProvider mPostProvider;
 
-    public MyPostsAdapter(FirestoreRecyclerOptions<Post> options, Context context) {
+    public MyExercisesAdapter(FirestoreRecyclerOptions<Exercise> options, Context context) {
         super(options);
         this.context = context;
         mUsersProvider = new UsersProvider();
         mLikesProvider = new LikesProvider();
         mAuthProvider = new AuthProvider();
-        mPostProvider = new PostProvider();
+        mPostProvider = new ExerciseProvider();
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull final ViewHolder holder, int position, @NonNull final Post post) {
+    protected void onBindViewHolder(@NonNull final ViewHolder holder, int position, @NonNull final Exercise post) {
 
         DocumentSnapshot document = getSnapshots().getSnapshot(position);
         final String postId = document.getId();
@@ -80,6 +75,7 @@ public class MyPostsAdapter extends FirestoreRecyclerAdapter<Post, MyPostsAdapte
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, PostDetailActivity.class);
+//                Intent intent = new Intent(context, ExerciseDetailActivity.class);
                 intent.putExtra("id", postId);
                 context.startActivity(intent);
             }
@@ -98,7 +94,7 @@ public class MyPostsAdapter extends FirestoreRecyclerAdapter<Post, MyPostsAdapte
     private void showConfirmDelete(final String postId) {
         new AlertDialog.Builder(context)
                         .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setTitle("Eliminar ejercicio")
+                        .setTitle("Eliminar publicación")
                         .setMessage("¿Estas seguro de realizar esta accion?")
                         .setPositiveButton("SI", new DialogInterface.OnClickListener() {
                             @Override
@@ -131,6 +127,11 @@ public class MyPostsAdapter extends FirestoreRecyclerAdapter<Post, MyPostsAdapte
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_my_post, parent, false);
         return new ViewHolder(view);
     }
+
+//    @Override
+//    protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Exercise model) {
+//
+//    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView textViewTitle;

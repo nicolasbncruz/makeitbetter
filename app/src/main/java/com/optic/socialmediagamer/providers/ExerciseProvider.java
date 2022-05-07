@@ -23,8 +23,9 @@ public class ExerciseProvider {
         return mCollection.orderBy("timestamp", Query.Direction.DESCENDING);
     }
 
-    public Query getExerciseByCategoryAndTimestamp(String category) {
-        return mCollection.whereEqualTo("category", category).orderBy("timestamp", Query.Direction.DESCENDING);
+    public Query getExerciseByUserAndTitle(String idUser, String title) {
+        return mCollection.whereEqualTo("idUSer", idUser).whereEqualTo("title", title);
+//        return mCollection.document(category).get();
     }
 
     public Query getExerciseByTitle(String title) {
@@ -34,6 +35,10 @@ public class ExerciseProvider {
     public Query getExerciseByUser(String id){
         return mCollection.whereEqualTo("idUser", id);
     }
+
+//    public Query getExerciseById(String id){
+//        return mCollection.whereEqualTo("id", id);
+//    }
 
     public Task<DocumentSnapshot> getExerciseById(String id) {
         return mCollection.document(id).get();
