@@ -36,6 +36,7 @@ public class UsersProvider {
         Map<String, Object> map = new HashMap<>();
         map.put("username", user.getUsername());
         map.put("phone", user.getPhone());
+        map.put("weight", user.getWeight());
         map.put("timestamp", new Date().getTime());
         map.put("image_profile", user.getImageProfile());
         map.put("image_cover", user.getImageCover());

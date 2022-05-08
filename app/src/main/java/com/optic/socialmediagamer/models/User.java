@@ -6,6 +6,7 @@ public class User {
     private String email;
     private String username;
     private String phone;
+    private String weight;
     private String imageProfile;
     private String imageCover;
     private long timestamp;
@@ -16,11 +17,12 @@ public class User {
 
     }
 
-    public User(String id, String email, String username, String phone, String imageProfile, String imageCover, long timestamp, long lastConnection, boolean online) {
+    public User(String id, String email, String username, String phone, String weight, String imageProfile, String imageCover, long timestamp, long lastConnection, boolean online) {
         this.id = id;
         this.email = email;
         this.username = username;
         this.phone = phone;
+        this.weight = weight;
         this.imageProfile = imageProfile;
         this.imageCover = imageCover;
         this.timestamp = timestamp;
@@ -58,6 +60,14 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
 
     public long getTimestamp() {

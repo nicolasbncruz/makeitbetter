@@ -49,6 +49,7 @@ public class EditProfileActivity extends AppCompatActivity {
     ImageView mImageViewCover;
     TextInputEditText mTextInputUsername;
     TextInputEditText mTextInputPhone;
+    TextInputEditText mTextInputWeight;
     Button mButtonEditProfile;
 
     AlertDialog.Builder mBuilderSelector;
@@ -73,6 +74,7 @@ public class EditProfileActivity extends AppCompatActivity {
     
     String mUsername = "";
     String mPhone = "";
+    String mWeight = "";
     String mImageProfile = "";
     String mImageCover = "";
 
@@ -92,6 +94,7 @@ public class EditProfileActivity extends AppCompatActivity {
         mImageViewCover = findViewById(R.id.imageViewCover);
         mTextInputUsername = findViewById(R.id.textInputUsername);
         mTextInputPhone = findViewById(R.id.textInputPhone);
+        mTextInputWeight = findViewById(R.id.textInputWeight);
         mButtonEditProfile = findViewById(R.id.btnEditProfile);
 
         mBuilderSelector = new AlertDialog.Builder(this);
@@ -151,6 +154,10 @@ public class EditProfileActivity extends AppCompatActivity {
                         mPhone = documentSnapshot.getString("phone");
                         mTextInputPhone.setText(mPhone);
                     }
+                    if (documentSnapshot.contains("weight")) {
+                        mWeight = documentSnapshot.getString("weight");
+                        mTextInputWeight.setText(mWeight);
+                    }
                     if (documentSnapshot.contains("image_profile")) {
                         mImageProfile = documentSnapshot.getString("image_profile");
                         if (mImageProfile != null) {
@@ -175,7 +182,8 @@ public class EditProfileActivity extends AppCompatActivity {
     private void clickEditProfile() {
         mUsername = mTextInputUsername.getText().toString();
         mPhone = mTextInputPhone.getText().toString();
-        if (!mUsername.isEmpty() && !mPhone.isEmpty()) {
+        mWeight = mTextInputWeight.getText().toString();
+        if (!mUsername.isEmpty() && !mPhone.isEmpty() && !mWeight.isEmpty()) {
             if (mImageFile != null && mImageFile2 != null ) {
                 saveImageCoverAndProfile(mImageFile, mImageFile2);
             }
@@ -205,6 +213,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 User user = new User();
                 user.setUsername(mUsername);
                 user.setPhone(mPhone);
+                user.setWeight(mWeight);
                 user.setId(mAuthProvider.getUid());
                 updateInfo(user);
             }
@@ -236,6 +245,7 @@ public class EditProfileActivity extends AppCompatActivity {
                                                 User user = new User();
                                                 user.setUsername(mUsername);
                                                 user.setPhone(mPhone);
+                                                user.setWeight(mWeight);
                                                 user.setImageProfile(urlProfile);
                                                 user.setImageCover(urlCover);
                                                 user.setId(mAuthProvider.getUid());
@@ -273,6 +283,7 @@ public class EditProfileActivity extends AppCompatActivity {
                             User user = new User();
                             user.setUsername(mUsername);
                             user.setPhone(mPhone);
+                            user.setWeight(mWeight);
                             if (isProfileImage) {
                                 user.setImageProfile(url);
                                 user.setImageCover(mImageCover);
