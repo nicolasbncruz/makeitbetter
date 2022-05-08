@@ -9,6 +9,7 @@ public class User {
     private String weight;
     private String height;
     private String dateBirth;
+    private String gender;
     private String imageProfile;
     private String imageCover;
     private long timestamp;
@@ -19,7 +20,7 @@ public class User {
 
     }
 
-    public User(String id, String email, String username, String phone, String weight, String height, String dateBirth, String imageProfile, String imageCover, long timestamp, long lastConnection, boolean online) {
+    public User(String id, String email, String username, String phone, String weight, String height, String dateBirth, String gender, String imageProfile, String imageCover, long timestamp, long lastConnection, boolean online) {
         this.id = id;
         this.email = email;
         this.username = username;
@@ -27,6 +28,7 @@ public class User {
         this.weight = weight;
         this.height = height;
         this.dateBirth = dateBirth;
+        this.gender = gender;
         this.imageProfile = imageProfile;
         this.imageCover = imageCover;
         this.timestamp = timestamp;
@@ -88,6 +90,14 @@ public class User {
 
     public void setDateBirth(String dateBirth) {
         this.dateBirth = dateBirth;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public long getTimestamp() {

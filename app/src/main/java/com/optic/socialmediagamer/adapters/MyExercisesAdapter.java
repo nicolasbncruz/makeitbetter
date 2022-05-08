@@ -94,8 +94,8 @@ public class MyExercisesAdapter extends FirestoreRecyclerAdapter<Exercise, MyExe
     private void showConfirmDelete(final String postId) {
         new AlertDialog.Builder(context)
                         .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setTitle("Eliminar publicación")
-                        .setMessage("¿Estas seguro de realizar esta accion?")
+                        .setTitle("Eliminar ejercicio")
+                        .setMessage("¿Estas seguro de haber completado este ejercicio?")
                         .setPositiveButton("SI", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -111,10 +111,10 @@ public class MyExercisesAdapter extends FirestoreRecyclerAdapter<Exercise, MyExe
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(context, "El post se elimino correctamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "El ejercicio se elimino correctamente de tu lista", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(context, "No se pudo eliminar el post", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "No se pudo eliminar el ejercicio", Toast.LENGTH_SHORT).show();
                 }
             }
         });

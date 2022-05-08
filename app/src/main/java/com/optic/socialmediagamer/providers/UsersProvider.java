@@ -39,6 +39,7 @@ public class UsersProvider {
         map.put("weight", user.getWeight());
         map.put("height", user.getHeight());
         map.put("dateBirth", user.getDateBirth());
+//        map.put("gender", user.getGender());
         map.put("timestamp", new Date().getTime());
         map.put("image_profile", user.getImageProfile());
         map.put("image_cover", user.getImageCover());
