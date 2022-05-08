@@ -143,6 +143,35 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:src="@drawable/ic_baseline_calendar_today"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp"/>
+
+            <Button
+                android:id="@+id/datePickerButton"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="Fecha de Nacimiento"
+                android:textSize="18sp"
+                android:textColor="#6E6C6C"
+                style="?android:spinnerStyle"
+                android:paddingLeft="10dp"
+                android:onClick="openDatePicker"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/ic_phone"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="5dp"/>

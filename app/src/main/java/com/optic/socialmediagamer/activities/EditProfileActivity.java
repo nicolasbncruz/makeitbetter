@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
@@ -16,6 +17,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -37,6 +39,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Date;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -52,6 +55,8 @@ public class EditProfileActivity extends AppCompatActivity {
     TextInputEditText mTextInputWeight;
     TextInputEditText mTextInputHeight;
     Button mButtonEditProfile;
+    DatePickerDialog datePickerDialog;
+    Button dateButton;
 
     AlertDialog.Builder mBuilderSelector;
     CharSequence options[];
@@ -77,6 +82,7 @@ public class EditProfileActivity extends AppCompatActivity {
     String mPhone = "";
     String mWeight = "";
     String mHeight = "";
+    String mDateBirth = "";
     String mImageProfile = "";
     String mImageCover = "";
 
@@ -98,6 +104,8 @@ public class EditProfileActivity extends AppCompatActivity {
         mTextInputPhone = findViewById(R.id.textInputPhone);
         mTextInputWeight = findViewById(R.id.textInputWeight);
         mTextInputHeight = findViewById(R.id.textInputHeight);
+        dateButton = findViewById(R.id.datePickerButton);
+//        dateButton.setText(getTodaysDate());
         mButtonEditProfile = findViewById(R.id.btnEditProfile);
 
         mBuilderSelector = new AlertDialog.Builder(this);
@@ -142,6 +150,45 @@ public class EditProfileActivity extends AppCompatActivity {
         });
 
         getUser();
+        initDatePicker();
+    }
+
+//    private String getTodaysDate(){
+//        Calendar cal = Calendar.getInstance();
+//        int year = cal.get(Calendar.YEAR);
+//        int month = cal.get(Calendar.MONTH);
+//        month = month + 1;
+//        int day = cal.get(Calendar.DAY_OF_MONTH);
+//        return makeDateString(day, month, year);
+//    }
+
+    private void initDatePicker(){
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                  month = month + 1;
+                  String date = makeDateString(day, month, year);
+                  dateButton.setText(date);
+            }
+        };
+
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        int style = AlertDialog.THEME_HOLO_LIGHT;
+
+        datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
+        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+    }
+
+    private String makeDateString(int day, int month, int year){
+        return day + "/" + month + "/" + year;
+    }
+
+    public void openDatePicker(View view){
+        datePickerDialog.show();
     }
 
     private void getUser() {
@@ -164,6 +211,10 @@ public class EditProfileActivity extends AppCompatActivity {
                     if (documentSnapshot.contains("height")) {
                         mHeight = documentSnapshot.getString("height");
                         mTextInputHeight.setText(mHeight);
+                    }
+                    if (documentSnapshot.contains("dateBirth")) {
+                        mDateBirth = documentSnapshot.getString("dateBirth");
+                        dateButton.setText(mDateBirth);
                     }
                     if (documentSnapshot.contains("image_profile")) {
                         mImageProfile = documentSnapshot.getString("image_profile");
@@ -191,7 +242,8 @@ public class EditProfileActivity extends AppCompatActivity {
         mPhone = mTextInputPhone.getText().toString();
         mWeight = mTextInputWeight.getText().toString();
         mHeight = mTextInputHeight.getText().toString();
-        if (!mUsername.isEmpty() && !mPhone.isEmpty() && !mWeight.isEmpty() && !mHeight.isEmpty()) {
+        mDateBirth = dateButton.getText().toString();
+        if (!mUsername.isEmpty() && !mPhone.isEmpty() && !mWeight.isEmpty() && !mHeight.isEmpty() && !mDateBirth.equals("Fecha de Nacimiento")) {
             if (mImageFile != null && mImageFile2 != null ) {
                 saveImageCoverAndProfile(mImageFile, mImageFile2);
             }
@@ -223,12 +275,13 @@ public class EditProfileActivity extends AppCompatActivity {
                 user.setPhone(mPhone);
                 user.setWeight(mWeight);
                 user.setHeight(mHeight);
+                user.setDateBirth(mDateBirth);
                 user.setId(mAuthProvider.getUid());
                 updateInfo(user);
             }
         }
         else {
-            Toast.makeText(this, "Ingrese el nombre de usuario y el telefono", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Ingrese todos los datos", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -256,6 +309,7 @@ public class EditProfileActivity extends AppCompatActivity {
                                                 user.setPhone(mPhone);
                                                 user.setWeight(mWeight);
                                                 user.setHeight(mHeight);
+                                                user.setDateBirth(mDateBirth);
                                                 user.setImageProfile(urlProfile);
                                                 user.setImageCover(urlCover);
                                                 user.setId(mAuthProvider.getUid());
@@ -295,6 +349,7 @@ public class EditProfileActivity extends AppCompatActivity {
                             user.setPhone(mPhone);
                             user.setWeight(mWeight);
                             user.setHeight(mHeight);
+                            user.setDateBirth(mDateBirth);
                             if (isProfileImage) {
                                 user.setImageProfile(url);
                                 user.setImageCover(mImageCover);
